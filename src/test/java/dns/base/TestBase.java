@@ -34,7 +34,7 @@ public class TestBase {
 
         String browser = System.getProperty("browser_name", "chrome");
         if (browser.equals("chrome")) {
-            Attach.browserConsoleLogs();
+            Attach.browserConsoleLogs(); // log'и не берутся из firefox
         }
 
         String env = System.getProperty("environment");
