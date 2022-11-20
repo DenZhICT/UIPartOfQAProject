@@ -11,7 +11,7 @@ public class WebDriverProvider {
         String browser = System.getProperty("browser_name", "chrome");
 
         if (browser.equals("firefox")){
-            Configuration.timeout = 5000; // firefox не успевает прогружать нужные элементы
+            Configuration.timeout = 10000; // firefox не успевает прогружать нужные элементы
         }
 
         Configuration.browser = browser;
