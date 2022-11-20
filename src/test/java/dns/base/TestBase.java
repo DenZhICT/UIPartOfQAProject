@@ -31,7 +31,12 @@ public class TestBase {
     void addAttachments() {
         Attach.screenshotAs("Last screenshot");
         Attach.pageSource();
-        Attach.browserConsoleLogs();
+
+        String browser = System.getProperty("browser_name");
+        if (browser != null && browser.equals("chrome")) {
+            Attach.browserConsoleLogs();
+        }
+
         String env = System.getProperty("environment");
         if (env != null && env.equals("remote")) {
             Attach.addVideo();
