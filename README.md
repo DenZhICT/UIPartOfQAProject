@@ -1,4 +1,4 @@
-# <a target="_blank" href="https://www.dns-shop.ru"><img src="images/screen/DNS.png" alt="DNS" width="35" height="30"/>Проект: Автоматизации тестирования DNS</a>
+# <a target="_blank" href="https://www.dns-shop.ru"><img src="images/screen/DNS.png" alt="DNS" width="35" height="30"/>Проект: UI Автоматизации тестирования DNS</a>
 
 ## :scroll: Содержание:
 
