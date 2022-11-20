@@ -7,7 +7,7 @@
 - [Сборка в Jenkins](#man_technologist-jenkins-job)
 - [Запуск из терминала](#desktop_computer-Запуск-тестов-из-терминала)
 - [Allure отчет](#chart_with_upwards_trend-отчет-в-allure-report)
-- [Отчёт в Allure TestOps](#bar_chart_отчет_в_allure_testops)
+- [Отчёт в Allure TestOps](#bar_chart-отчет-в-allure-testops)
 - [Отчет в Telegram](#grapes-уведомление-в-telegram-при-помощи-бота)
 - [Видео пример прохождения тестов](#film_strip-пример-видео-о-прохождении-тестов)
 
