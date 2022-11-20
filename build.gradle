@@ -1,0 +1,101 @@
+plugins {
+    id 'java'
+    id 'io.qameta.allure' version '2.10.0'
+}
+
+group 'qa.guru'
+version '1.0'
+
+allure {
+    report {
+        version.set("2.19.0")
+    }
+    adapter {
+        aspectjWeaver.set(true)
+        frameworks {
+            junit5 {
+                adapterVersion.set("2.19.0")
+            }
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    //JUnit 5
+    testImplementation('org.junit.jupiter:junit-jupiter:5.9.0')
+
+    //Selenide
+    testImplementation('com.codeborne:selenide:6.9.0')
+    testRuntimeOnly('org.slf4j:slf4j-simple:2.0.3')
+
+    //Allure
+    testImplementation('io.qameta.allure:allure-selenide:2.20.0')
+    testImplementation('io.qameta.allure:allure-rest-assured:2.20.0')
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+task All(type: Test) {
+    useJUnitPlatform{
+        includeTags 'All'
+    }
+}
+
+task City(type: Test) {
+    useJUnitPlatform{
+        includeTags 'City'
+    }
+}
+task Search(type: Test) {
+    useJUnitPlatform{
+        includeTags 'Search'
+    }
+}
+task Catalog(type: Test) {
+    useJUnitPlatform{
+        includeTags 'Catolog'
+    }
+}
+task Add(type: Test) {
+    useJUnitPlatform{
+        includeTags 'Add'
+    }
+}
+task Delete(type: Test) {
+    useJUnitPlatform{
+        includeTags 'Delete'
+    }
+}
+task Cart(type: Test) {
+    useJUnitPlatform{
+        includeTags 'Cart'
+    }
+}
+task WishList(type: Test) {
+    useJUnitPlatform{
+        includeTags 'WishList'
+    }
+}
+task Help(type: Test) {
+    useJUnitPlatform{
+        includeTags 'Help'
+    }
+}
+
+tasks.withType(Test) {
+    systemProperties(System.getProperties())
+    //useJUnitPlatform()
+
+    testLogging {
+        lifecycle {
+            events "started", "skipped", "failed", "standard_error", "standard_out"
+            exceptionFormat "short"
+        }
+    }
+}
