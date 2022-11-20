@@ -32,8 +32,8 @@ public class TestBase {
         Attach.screenshotAs("Last screenshot");
         Attach.pageSource();
 
-        String browser = System.getProperty("browser_name");
-        if (browser != null && browser.equals("chrome")) {
+        String browser = System.getProperty("browser_name", "chrome");
+        if (browser.equals("chrome")) {
             Attach.browserConsoleLogs();
         }
 

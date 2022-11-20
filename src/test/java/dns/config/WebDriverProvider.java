@@ -8,7 +8,13 @@ public class WebDriverProvider {
         Configuration.baseUrl = "https://www.dns-shop.ru";
         Configuration.browserPosition = "0x0";
 
-        Configuration.browser = System.getProperty("browser_name", "chrome");
+        String browser = System.getProperty("browser_name", "chrome");
+
+        if (browser.equals("firefox")){
+            Configuration.timeout = 5000;
+        }
+
+        Configuration.browser = browser;
         Configuration.browserVersion = System.getProperty("browser_version", "100.0");
         Configuration.browserSize = System.getProperty("browser_size", "1920x1080");
 
