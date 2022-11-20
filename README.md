@@ -7,7 +7,7 @@
 - [Сборка в Jenkins](#man_technologist-jenkins-job)
 - [Запуск из терминала](#desktop_computer-Запуск-тестов-из-терминала)
 - [Allure отчет](#chart_with_upwards_trend-отчет-в-allure-report)
-- [Allure TestOps отчёт](#bar_chart-allure-testops-отчёт)
+- [Allure TestOps отчёт](#bar_chart-отчёт-в-allure-testops)
 - [Отчет в Telegram](#grapes-уведомление-в-telegram-при-помощи-бота)
 - [Видео пример прохождения тестов](#film_strip-пример-видео-о-прохождении-тестов)
 
@@ -16,7 +16,7 @@
 <p align="center">
 <a href="https://www.jetbrains.com/idea/"><img src="images/logo/Intelij_IDEA.svg" width="50" height="50"  alt="IDEA"/></a>
 <a href="https://www.java.com/"><img src="images/logo/Java.svg" width="50" height="50"  alt="Java"/></a>
-<a href="https://github.com/"><img src="images/logo/Github.svg" width="50" height="50"  alt="Github"/></a>
+<a href="https://github.com/"><img src="images/logo/GitHub.svg" width="50" height="50"  alt="Github"/></a>
 <a href="https://junit.org/junit5/"><img src="images/logo/JUnit5.svg" width="50" height="50"  alt="JUnit 5"/></a>
 <a href="https://gradle.org/"><img src="images/logo/Gradle.svg" width="50" height="50"  alt="Gradle"/></a>
 <a href="https://selenide.org/"><img src="images/logo/Selenide.svg" width="50" height="50"  alt="Selenide"/></a>
