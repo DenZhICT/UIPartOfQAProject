@@ -59,7 +59,7 @@ task Search(type: Test) {
 }
 task Catalog(type: Test) {
     useJUnitPlatform{
-        includeTags 'Catolog'
+        includeTags 'Catalog'
     }
 }
 task Add(type: Test) {
