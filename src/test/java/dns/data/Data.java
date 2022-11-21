@@ -3,10 +3,11 @@ package dns.data;
 public class Data {
 
     private final String city = "Уфа",
-    tech = "Ноутбуки",
-    mainCatalog="Отдых и развлечения",
-    catalog="Развлечения и хобби",
-    subCatalog="Настольные игры";
+            tech = "Ноутбуки",
+            mainCatalog = "Отдых и развлечения",
+            catalog = "Развлечения и хобби",
+            subCatalog = "Настольные игры";
+
     public String getCity() {
         return city;
     }

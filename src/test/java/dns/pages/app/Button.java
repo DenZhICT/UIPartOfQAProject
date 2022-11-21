@@ -4,5 +4,5 @@ public interface Button {
 
     String getAddLocal();
 
-     String getDelLocal();
+    String getDelLocal();
 }

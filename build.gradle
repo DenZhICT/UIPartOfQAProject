@@ -45,48 +45,48 @@ tasks.withType(JavaCompile) {
 }
 
 task All(type: Test) {
-    useJUnitPlatform{
+    useJUnitPlatform {
         includeTags 'All'
     }
 }
 
 task City(type: Test) {
-    useJUnitPlatform{
+    useJUnitPlatform {
         includeTags 'City'
     }
 }
 task Search(type: Test) {
-    useJUnitPlatform{
+    useJUnitPlatform {
         includeTags 'Search'
     }
 }
 task Catalog(type: Test) {
-    useJUnitPlatform{
+    useJUnitPlatform {
         includeTags 'Catalog'
     }
 }
 task Add(type: Test) {
-    useJUnitPlatform{
+    useJUnitPlatform {
         includeTags 'Add'
     }
 }
 task Delete(type: Test) {
-    useJUnitPlatform{
+    useJUnitPlatform {
         includeTags 'Delete'
     }
 }
 task Cart(type: Test) {
-    useJUnitPlatform{
+    useJUnitPlatform {
         includeTags 'Cart'
     }
 }
 task WishList(type: Test) {
-    useJUnitPlatform{
+    useJUnitPlatform {
         includeTags 'WishList'
     }
 }
 task Help(type: Test) {
-    useJUnitPlatform{
+    useJUnitPlatform {
         includeTags 'Help'
     }
 }

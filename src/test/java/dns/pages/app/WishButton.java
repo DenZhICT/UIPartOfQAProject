@@ -1,6 +1,6 @@
 package dns.pages.app;
 
-public class WishButton implements Button{
+public class WishButton implements Button {
     private final String add = ".wishlist-btn",
             del = ".button-ui_done";
 
