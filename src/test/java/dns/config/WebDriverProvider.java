@@ -1,20 +1,24 @@
 package dns.config;
 
 import com.codeborne.selenide.Configuration;
+import org.aeonbits.owner.ConfigFactory;
 
 public class WebDriverProvider {
 
     public void setWebDriverConfiguration() {
-        Configuration.baseUrl = "https://www.dns-shop.ru";
-        Configuration.browserPosition = "0x0";
 
-        Configuration.browser = System.getProperty("browser_name", "chrome");
-        Configuration.browserVersion = System.getProperty("browser_version", "100.0");
-        Configuration.browserSize = System.getProperty("browser_size", "1920x1080");
+        WebDriverConfig config = ConfigFactory.create(WebDriverConfig.class, System.getProperties());
+
+        Configuration.baseUrl = config.getBaseUrl();
+        Configuration.browserPosition = config.getBrowserPosition();
+
+        Configuration.browser = System.getProperty("browser_name", config.getBrowserName());
+        Configuration.browserVersion = System.getProperty("browser_version", config.getBrowserVersion());
+        Configuration.browserSize = System.getProperty("browser_size", config.getBrowserSize());
 
         String env = System.getProperty("environment");
         if (env != null && env.equals("remote")) {
-            Configuration.remote = "https://user1:1234@selenoid.autotests.cloud/wd/hub/";
+            Configuration.remote = config.getRemoteUrl();
         }
     }
 }
