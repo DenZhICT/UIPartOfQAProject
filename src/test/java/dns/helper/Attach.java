@@ -10,8 +10,10 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 
+import static com.codeborne.selenide.Selenide.sessionId;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static org.openqa.selenium.logging.LogType.BROWSER;
+import static org.openqa.selenium.remote.HttpSessionId.getSessionId;
 
 public class Attach {
     @Attachment(value = "{attachName}", type = "image/png")
@@ -45,7 +47,7 @@ public class Attach {
     }
 
     public static URL getVideoUrl() {
-        String videoUrl = "https://selenoid.autotests.cloud/video/" + getSessionId() + ".mp4";
+        String videoUrl = "https://selenoid.autotests.cloud/video/" + sessionId() + ".mp4";
 
         try {
             return new URL(videoUrl);
@@ -53,9 +55,5 @@ public class Attach {
             e.printStackTrace();
         }
         return null;
-    }
-
-    public static String getSessionId() {
-        return ((RemoteWebDriver) getWebDriver()).getSessionId().toString();
     }
 }
