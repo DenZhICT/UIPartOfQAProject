@@ -1,22 +1,25 @@
 package dns.tests.UITests;
 
-import dns.pages.DNSPage;
 import dns.base.TestBase;
+import dns.data.Data;
+import dns.pages.DNSPage;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 
-@Tag("UITest") @Tag("All")
+@Tag("UITest")
+@Tag("All")
 @DisplayName("UI тесты на сайт DNS")
 public class UiDnsTests extends TestBase {
 
     DNSPage page = new DNSPage();
+    Data data = new Data();
 
     @Tag("City")
     @DisplayName("Смена города")
     @Test
     void cityChangeTest() {
-        String city = "Уфа";
+        String city = data.getCity();
 
         page.openMainPage()
                 .clearAll()
@@ -29,7 +32,7 @@ public class UiDnsTests extends TestBase {
     @DisplayName("Работоспособности поиска")
     @Test
     void searchSystemTest() {
-        String tech = "Ноутбуки";
+        String tech = data.getTech();
 
         page.openMainPage()
                 .clearAll()
@@ -42,9 +45,9 @@ public class UiDnsTests extends TestBase {
     @DisplayName("Работоспособность католога")
     @Test
     void catalogTest() {
-        String mainCatalogChapter = "Отдых и развлечения",
-                catalogChapter = "Развлечения и хобби",
-                subCatalogChapter = "Настольные игры";
+        String mainCatalogChapter = data.getMainCatalog(),
+                catalogChapter = data.getCatalog(),
+                subCatalogChapter = data.getSubCatalog();
 
         page.openMainPage()
                 .clearAll()
@@ -54,11 +57,12 @@ public class UiDnsTests extends TestBase {
                 .checkTitle(subCatalogChapter);
     }
 
-    @Tag("Add") @Tag("Cart")
+    @Tag("Add")
+    @Tag("Cart")
     @DisplayName("Добавление техники в корзину")
     @Test
     void addTechInCartTest() {
-        String tech = "Ноутбуки";
+        String tech = data.getTech();
 
         page.openMainPage()
                 .clearAll()
@@ -68,11 +72,12 @@ public class UiDnsTests extends TestBase {
                 .checkAmountOfProductInCart();
     }
 
-    @Tag("Add") @Tag("WishList")
+    @Tag("Add")
+    @Tag("WishList")
     @DisplayName("Добавление техники в список желаемого")
     @Test
     void addTechInWishListTest() {
-        String tech = "Ноутбуки";
+        String tech = data.getTech();
 
         page.openMainPage()
                 .clearAll()
@@ -82,11 +87,12 @@ public class UiDnsTests extends TestBase {
                 .checkAmountOfProductInWishList();
     }
 
-    @Tag("Delete") @Tag("Cart")
+    @Tag("Delete")
+    @Tag("Cart")
     @DisplayName("Удаление техники из корзины")
     @Test
     void delTechFromCartTest() {
-        String tech = "Ноутбуки";
+        String tech = data.getTech();
 
         page.openMainPage()
                 .clearAll()
@@ -98,11 +104,12 @@ public class UiDnsTests extends TestBase {
                 .checkCartIsEmpty();
     }
 
-    @Tag("Delete") @Tag("WishList")
+    @Tag("Delete")
+    @Tag("WishList")
     @DisplayName("Удаление техники из списока желаемого")
     @Test
     void delTechFromWishListTest() {
-        String tech = "Ноутбуки";
+        String tech = data.getTech();
 
         page.openMainPage()
                 .clearAll()
