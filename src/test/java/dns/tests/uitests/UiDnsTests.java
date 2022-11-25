@@ -1,4 +1,4 @@
-package dns.tests.UITests;
+package dns.tests.uitests;
 
 import dns.base.TestBase;
 import dns.data.Data;
