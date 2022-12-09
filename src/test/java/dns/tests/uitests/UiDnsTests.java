@@ -1,7 +1,5 @@
 package dns.tests.uitests;
 
-import dns.base.TestBase;
-import dns.data.Data;
 import dns.pages.DNSPage;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
@@ -13,16 +11,16 @@ import org.junit.jupiter.api.Test;
 public class UiDnsTests extends TestBase {
 
     DNSPage page = new DNSPage();
-    Data data = new Data();
+
+    private String tech = "Ноутбуки";
 
     @Tag("City")
     @DisplayName("Смена города")
     @Test
     void cityChangeTest() {
-        String city = data.getCity();
+        String city = "Уфа";
 
         page.openMainPage()
-                .clearAll()
                 .citySelectorClick()
                 .chooseCity(city)
                 .checkCity(city);
@@ -32,10 +30,7 @@ public class UiDnsTests extends TestBase {
     @DisplayName("Работоспособности поиска")
     @Test
     void searchSystemTest() {
-        String tech = data.getTech();
-
         page.openMainPage()
-                .clearAll()
                 .inputTextInSearchField(tech)
                 .isItEnd()
                 .checkTitle(tech);
@@ -45,12 +40,11 @@ public class UiDnsTests extends TestBase {
     @DisplayName("Работоспособность католога")
     @Test
     void catalogTest() {
-        String mainCatalogChapter = data.getMainCatalog(),
-                catalogChapter = data.getCatalog(),
-                subCatalogChapter = data.getSubCatalog();
+        String mainCatalogChapter = "Отдых и развлечения",
+                catalogChapter = "Развлечения и хобби",
+                subCatalogChapter = "Настольные игры";
 
         page.openMainPage()
-                .clearAll()
                 .chooseMainCatalog(mainCatalogChapter)
                 .chooseCatalogById(catalogChapter)
                 .chooseCatalogById(subCatalogChapter)
@@ -62,10 +56,7 @@ public class UiDnsTests extends TestBase {
     @DisplayName("Добавление техники в корзину")
     @Test
     void addTechInCartTest() {
-        String tech = data.getTech();
-
         page.openMainPage()
-                .clearAll()
                 .inputTextInSearchField(tech)
                 .addProductInCart()
                 .openPageByWay("/cart")
@@ -77,10 +68,7 @@ public class UiDnsTests extends TestBase {
     @DisplayName("Добавление техники в список желаемого")
     @Test
     void addTechInWishListTest() {
-        String tech = data.getTech();
-
         page.openMainPage()
-                .clearAll()
                 .inputTextInSearchField(tech)
                 .addProductInWishList()
                 .openPageByWay("/profile/wishlist/")
@@ -92,10 +80,7 @@ public class UiDnsTests extends TestBase {
     @DisplayName("Удаление техники из корзины")
     @Test
     void delTechFromCartTest() {
-        String tech = data.getTech();
-
         page.openMainPage()
-                .clearAll()
                 .inputTextInSearchField(tech)
                 .addProductInCart()
                 .openPageByWay("/cart")
@@ -109,10 +94,7 @@ public class UiDnsTests extends TestBase {
     @DisplayName("Удаление техники из списока желаемого")
     @Test
     void delTechFromWishListTest() {
-        String tech = data.getTech();
-
         page.openMainPage()
-                .clearAll()
                 .inputTextInSearchField(tech)
                 .addProductInWishList()
                 .openPageByWay("/profile/wishlist/")
@@ -126,7 +108,6 @@ public class UiDnsTests extends TestBase {
     @Test
     void helpTest() {
         page.openMainPage()
-                .clearAll()
                 .clickHelp()
                 .checkHelp();
     }

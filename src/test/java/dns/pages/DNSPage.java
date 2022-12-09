@@ -1,9 +1,5 @@
 package dns.pages;
 
-import com.codeborne.selenide.Selenide;
-import dns.pages.app.BuyButton;
-import dns.pages.app.WishButton;
-
 import static com.codeborne.selenide.Condition.id;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
@@ -26,11 +22,11 @@ public class DNSPage {
             help = ".navmenu__submenu-link",
             helpHead = ".help__head",
             animation = ".animation_active",
-            waitForRedirect = "[data-redirect='https://www.dns-shop.ru/cart/']";
-
-    private final BuyButton buyButton = new BuyButton();
-    private final WishButton wishButton = new WishButton();
-
+            waitForRedirect = "[data-redirect='https://www.dns-shop.ru/cart/']",
+            addBuyButton = ".button-ui_passive",
+            deleteBuyButton = ".remove-button__title",
+            addWishButton = ".wishlist-btn",
+            deleteWishButton = ".button-ui_done";
 
     public DNSPage openPageByWay(String way) {
         step(format("Перейти по пути %s относительно главного", way), () ->
@@ -44,21 +40,13 @@ public class DNSPage {
         return this;
     }
 
-    public DNSPage clearAll() {
-        step("Очистить данные страницы", () -> {
-            Selenide.clearBrowserCookies();
-            Selenide.clearBrowserLocalStorage();
-        });
-        return this;
-    }
-
     public DNSPage citySelectorClick() {
         step("Нажать на выбор города", () ->
                 $(citySelect).click());
         step("Стабильность тестов", () -> {
             while ($$(animation).size() == 2) {
             }
-        }); //DNS-сайт нестабильный по времени отклика, приходиться делать задержку, иначе тесты тоже становтся не сталбильными
+        }); //DNS-сайт нестабильный по времени отклика, приходиться делать задержку, иначе тесты тоже становятся не сталбильными
         return this;
     }
 
@@ -90,29 +78,29 @@ public class DNSPage {
 
     public DNSPage addProductInCart() {
         step("Нажать на кнопку \"Купить\" возле продукта", () ->
-                $(buyButton.getAddLocal()).click());
+                $(addBuyButton).click());
         step("Стабильность тестов", () -> {
             while (!$(waitForRedirect).exists()) {
             }
-        }); //DNS-сайт нестабильный по времени отклика, приходиться делать задержку, иначе тесты тоже становтся не сталбильными
+        }); //DNS-сайт нестабильный по времени отклика, приходиться делать задержку, иначе тесты тоже становятся не сталбильными
         return this;
     }
 
     public DNSPage addProductInWishList() {
         step("Нажать на конпку в виде сердечка возле продукта", () ->
-                $(wishButton.getAddLocal()).click());
+                $(addWishButton).click());
         step("Стабильность тестов", () -> {
-            while (!$(wishButton.getDelLocal()).exists()) {
+            while (!$(deleteWishButton).exists()) {
             }
-        }); //DNS-сайт нестабильный по времени отклика, приходиться делать задержку, иначе тесты тоже становтся не сталбильными
+        }); //DNS-сайт нестабильный по времени отклика, приходиться делать задержку, иначе тесты тоже становятся не сталбильными
         return this;
     }
 
     public DNSPage delProductFromCart() {
         step("Нажат на кнопку удалить возле продукта", () ->
-                $(buyButton.getDelLocal()).click());
+                $(deleteBuyButton).click());
         step("Стабильность тестов", () -> {
-            while ($(buyButton.getDelLocal()).exists()) {
+            while ($(deleteBuyButton).exists()) {
             }
         }); //DNS-сайт нестабильный по времени отклика, приходиться делать задержку, иначе тесты тоже становтся не сталбильными
         refresh();
@@ -121,9 +109,9 @@ public class DNSPage {
 
     public DNSPage delProductFromWishList() {
         step("Нажать на конпку в виде сердечка возле продукта", () ->
-                $(wishButton.getDelLocal()).click());
+                $(deleteWishButton).click());
         step("Стабильность тестов", () -> {
-            while ($(wishButton.getDelLocal()).exists()) {
+            while ($(deleteWishButton).exists()) {
             }
         }); //DNS-сайт нестабильный по времени отклика, приходиться делать задержку, иначе тесты тоже становтся не сталбильными
         refresh();
