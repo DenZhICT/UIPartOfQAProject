@@ -65,6 +65,11 @@ task Catalog(type: Test) {
         includeTags 'Catalog'
     }
 }
+task CurrentCatalog(type: Test) {
+    useJUnitPlatform {
+        includeTags 'CurrentCatalog'
+    }
+}
 task Add(type: Test) {
     useJUnitPlatform {
         includeTags 'Add'
