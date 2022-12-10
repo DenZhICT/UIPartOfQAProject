@@ -1,5 +1,6 @@
 package dns.tests.uitests;
 
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import dns.config.WebDriverProvider;
 import dns.helper.Attach;
@@ -7,7 +8,6 @@ import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 
-import static com.codeborne.selenide.Selenide.closeWebDriver;
 import static io.qameta.allure.Allure.step;
 
 public class TestBase {
@@ -33,7 +33,6 @@ public class TestBase {
         if (env != null && env.equals("remote")) {
             Attach.addVideo();
         }
-        step("Закрытие браузера",()->
-            closeWebDriver());
+        step("Закрытие браузера", Selenide::closeWebDriver);
     }
 }
