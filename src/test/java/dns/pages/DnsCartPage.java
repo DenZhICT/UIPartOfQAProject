@@ -7,11 +7,8 @@ import static io.qameta.allure.Allure.step;
 
 public class DnsCartPage {
 
-    private final String amountOfCart = ".summary-header__total-items",
-            emptyCart = ".empty-message__title-empty-cart",
-            deleteBuyButton = ".remove-button__title";
-
     public DnsCartPage delProductFromCart() {
+        String deleteBuyButton = ".remove-button__title";
         step("Нажат на кнопку удалить возле продукта", () ->
                 $(deleteBuyButton).click());
         step("Стабильность тестов", () -> {
@@ -23,12 +20,14 @@ public class DnsCartPage {
     }
 
     public DnsCartPage checkAmountOfProductInCart() {
+        String amountOfCart = ".summary-header__total-items";
         step("Проверить, что продукт был добавлен в корзину", () ->
                 $(amountOfCart).shouldHave(text("товар")));
         return this;
     }
 
     public void checkCartIsEmpty() {
+        String emptyCart = ".empty-message__title-empty-cart";
         step("Проверить, что корзина пуста", () ->
                 $(emptyCart).shouldHave(text("Корзина пуста")));
     }

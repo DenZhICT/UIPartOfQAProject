@@ -7,17 +7,10 @@ import static java.lang.String.format;
 
 public class DnsListOfProducts {
 
-    private final String
-            subTitle = ".products-list__group-title",
-            title = ".title",
-            waitForRedirect = "[data-redirect='https://www.dns-shop.ru/cart/']",
-            addBuyButton = ".button-ui_passive",
-            addWishButton = ".wishlist-btn",
-            deleteBuyButton = ".remove-button__title",
-
-    deleteWishButton = ".button-ui_done";
-
     public DnsListOfProducts addProductInCart() {
+        String addBuyButton = ".button-ui_passive",
+                waitForRedirect = "[data-redirect='https://www.dns-shop.ru/cart/']";
+
         step("Нажать на кнопку \"Купить\" возле продукта", () ->
                 $(addBuyButton).click());
         step("Стабильность тестов", () -> {
@@ -28,6 +21,9 @@ public class DnsListOfProducts {
     }
 
     public DnsListOfProducts addProductInWishList() {
+        String addWishButton = ".wishlist-btn",
+                deleteWishButton = ".button-ui_done";
+
         step("Нажать на конпку в виде сердечка возле продукта", () ->
                 $(addWishButton).click());
         step("Стабильность тестов", () -> {
@@ -38,6 +34,8 @@ public class DnsListOfProducts {
     }
 
     public DnsListOfProducts isItEnd() {
+        String subTitle = ".products-list__group-title";
+
         step("Дойти до финального подкатолога по поиску", () -> {
             while ($(subTitle).exists()) {
                 $(subTitle).click();
@@ -47,7 +45,9 @@ public class DnsListOfProducts {
     }
 
     public void checkTitle(String title) {
+        String titleSelector = ".title";
+
         step(format("Проверить, что в заголовке написано %s", title), () ->
-                $(this.title).shouldHave(text(title)));
+                $(titleSelector).shouldHave(text(title)));
     }
 }
