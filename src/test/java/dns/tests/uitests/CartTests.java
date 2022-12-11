@@ -24,11 +24,9 @@ public class CartTests extends TestBase {
         mainPage.openMainPage()
                 .inputTextInSearchField(tech);
         productPage
-                .addProductInCart();
-        mainPage
+                .addProductInCart()
                 .openPageByWay("/cart");
-        cartPage
-                .checkAmountOfProductInCart();
+        cartPage.checkAmountOfProductInCart();
     }
 
     @Tag("Delete")
@@ -38,8 +36,7 @@ public class CartTests extends TestBase {
         mainPage.openMainPage()
                 .inputTextInSearchField(tech);
         productPage
-                .addProductInCart();
-        mainPage
+                .addProductInCart()
                 .openPageByWay("/cart");
         cartPage
                 .checkAmountOfProductInCart()

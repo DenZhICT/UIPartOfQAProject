@@ -21,14 +21,13 @@ public class WishListTests extends TestBase {
     @DisplayName("Добавление техники в список желаемого")
     @Test
     void addTechInWishListTest() {
-        mainPage.openMainPage()
+        mainPage
+                .openMainPage()
                 .inputTextInSearchField(tech);
         productPage
-                .addProductInWishList();
-        mainPage
+                .addProductInWishList()
                 .openPageByWay("/profile/wishlist/");
-        wishListPage
-                .checkAmountOfProductInWishList();
+        wishListPage.checkAmountOfProductInWishList();
     }
 
     @Tag("Delete")
@@ -36,11 +35,11 @@ public class WishListTests extends TestBase {
     @DisplayName("Удаление техники из списока желаемого")
     @Test
     void delTechFromWishListTest() {
-        mainPage.openMainPage()
+        mainPage
+                .openMainPage()
                 .inputTextInSearchField(tech);
         productPage
-                .addProductInWishList();
-        mainPage
+                .addProductInWishList()
                 .openPageByWay("/profile/wishlist/");
         wishListPage
                 .checkAmountOfProductInWishList()

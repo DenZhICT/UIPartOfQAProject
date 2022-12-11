@@ -18,9 +18,9 @@ public class HelpTests extends TestBase {
         DnsMainPage mainPage = new DnsMainPage();
         DnsHelpPage helpPage = new DnsHelpPage();
 
-        mainPage.openMainPage()
+        mainPage
+                .openMainPage()
                 .clickHelp();
-        helpPage
-                .checkHelp();
+        helpPage.checkHelp();
     }
 }

@@ -1,6 +1,7 @@
 package dns.pages;
 
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.refresh;
 import static io.qameta.allure.Allure.step;
@@ -13,8 +14,7 @@ public class DnsWishListPage {
         step("Нажать на конпку в виде сердечка возле продукта", () ->
                 $(deleteWishButton).click());
         step("Стабильность тестов", () -> {
-            while ($(deleteWishButton).exists()) {
-            }
+            $(deleteWishButton).shouldNotBe(visible);
         }); //DNS-сайт нестабильный по времени отклика, приходиться делать задержку, иначе тесты тоже становтся не сталбильными
         refresh();
         return this;

@@ -42,7 +42,6 @@ public class CatalogTests extends TestBase {
         catalogPage
                 .chooseCatalogById(catalogChapter)
                 .chooseCatalogById(subCatalogChapter);
-        productsPage
-                .checkTitle(subCatalogChapter);
+        productsPage.checkTitle(subCatalogChapter);
     }
 }

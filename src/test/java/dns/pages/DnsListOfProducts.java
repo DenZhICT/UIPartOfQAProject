@@ -1,7 +1,9 @@
 package dns.pages;
 
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
 import static io.qameta.allure.Allure.step;
 import static java.lang.String.format;
 
@@ -14,8 +16,7 @@ public class DnsListOfProducts {
         step("Нажать на кнопку \"Купить\" возле продукта", () ->
                 $(addBuyButton).click());
         step("Стабильность тестов", () -> {
-            while (!$(waitForRedirect).exists()) {
-            }
+            $(waitForRedirect).shouldBe(visible);
         }); //DNS-сайт нестабильный по времени отклика, приходиться делать задержку, иначе тесты тоже становятся не сталбильными
         return this;
     }
@@ -27,8 +28,7 @@ public class DnsListOfProducts {
         step("Нажать на конпку в виде сердечка возле продукта", () ->
                 $(addWishButton).click());
         step("Стабильность тестов", () -> {
-            while (!$(deleteWishButton).exists()) {
-            }
+            $(deleteWishButton).shouldBe(visible);
         }); //DNS-сайт нестабильный по времени отклика, приходиться делать задержку, иначе тесты тоже становятся не сталбильными
         return this;
     }
@@ -49,5 +49,11 @@ public class DnsListOfProducts {
 
         step(format("Проверить, что в заголовке написано %s", title), () ->
                 $(titleSelector).shouldHave(text(title)));
+    }
+
+    public DnsListOfProducts openPageByWay(String way) {
+        step(format("Перейти по пути %s относительно главного", way), () ->
+                open(way));
+        return this;
     }
 }

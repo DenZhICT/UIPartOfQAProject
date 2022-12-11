@@ -1,7 +1,6 @@
 package dns.pages;
 
-import static com.codeborne.selenide.Condition.id;
-import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 import static java.lang.String.format;
@@ -10,13 +9,6 @@ public class DnsMainPage {
 
     private final String citySelect = ".city-select__text";
 
-
-    public DnsMainPage openPageByWay(String way) {
-        step(format("Перейти по пути %s относительно главного", way), () ->
-                open(way));
-        return this;
-    }
-
     public DnsMainPage openMainPage() {
         step("Открыть главную страницу DNS", () ->
                 open("/"));
@@ -24,13 +16,12 @@ public class DnsMainPage {
     }
 
     public DnsMainPage citySelectorClick() {
-        String animation = ".animation_active";
+        String animation = ".loader-ufo";
 
         step("Нажать на выбор города", () ->
                 $(citySelect).click());
         step("Стабильность тестов", () -> {
-            while ($$(animation).size() == 2) {
-            }
+            $(animation).shouldNotBe(visible);
         }); //DNS-сайт нестабильный по времени отклика, приходиться делать задержку, иначе тесты тоже становятся не сталбильными
         return this;
     }
